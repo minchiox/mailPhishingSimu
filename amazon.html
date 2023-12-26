@@ -3,7 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Aggiungi stile personalizzato per l'avviso di conferma */
+        .conferma-avviso {
+            border: 2px solid #e53e3e; /* Colore del bordo rosso */
+            background-color: #fed7d7; /* Colore di sfondo rosso chiaro */
+            color: #e53e3e; /* Colore del testo rosso */
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
 </head>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function confermaLinkMalevolo() {
+        Swal.fire({
+            title: 'Attenzione!',
+            text: 'Questo link potrebbe essere malevolo',
+            icon: 'warning',
+            confirmButtonColor: '#e53e3e',
+            confirmButtonText: 'OK',
+            showCancelButton: false,
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            allowEnterKey: false
+        });
+    }
+</script>
 <script>window.onload = function() {window.frameElement.height = document.body.scrollHeight + 'px'};document.onload = function() {window.frameElement.height = document.body.scrollHeight + 'px'};</script>
 <body><main class="flex h-full shadow-lg rounded-3xl">
     <section class="w-full px-4 flex flex-col bg-white rounded-r-3xl">
@@ -54,14 +82,19 @@
             </div>
         </div>
         <section>
-            <h1 class="font-bold text-2xl">Avviso di sicurezza</h1>
+            <h1 class="font-bold text-2xl">Attenzione: la tua autorizzazione di pagamento è stata sospesa</h1>
             <article class="mt-8 text-gray-500 leading-7 tracking-wider">
-                <p>Ciao Uccio</p>
-                <p>Ma mannagghia li muerti tua si propria nu scemo di merda comba, sei piu scemo di rosa dwnjdoANDo nd
-                Adawvrniwbadoui bnwoind oiawndpo awjmdjw opjdijaiocjd i wn hidon ha</p>
+                <p>Gentile Uccio</p>
+                <p>Abbiamo rilevato un'attività sospetta sul tuo account Amazon. Per proteggere il tuo account e i tuoi dati personali, abbiamo sospeso la tua autorizzazione di pagamento.
+
+                    Per ripristinare la tua autorizzazione di pagamento, devi confermare la tua identità. Fai clic sul seguente link per completare la conferma:<br><br>
+
+                <a class="text-center underline text-indigo-700" onclick="confermaLinkMalevolo()">https://www.amazon-it.com/conferma-autorizzazione.html</a><br><br>
+
+                    Se non fai clic sul link entro 24 ore, la tua autorizzazione di pagamento verrà revocata.</p>
                 <footer class="mt-12">
-                    <p>Grazie, Cordiali Saluti</p>
-                    <p>Il team di Google</p>
+                    <p>Grazie per la tua collaborazione.</p>
+                    <p>Il team di sicurezza di Amazon</p>
                 </footer>
             </article>
             <ul class="flex space-x-4 mt-12">
