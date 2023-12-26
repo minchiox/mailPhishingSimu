@@ -1,26 +1,11 @@
 <?php
 require 'config.php';
-//include 'checkconn.php';
+include 'checkconn.php';
 
 if(isset($_POST["submit"])){
-    $email = $_POST["email"];
-    $password= $_POST["password"];
-    $result = mysqli_query($conn, "SELECT * FROM utente WHERE email ='$email' ");
-    $row = mysqli_fetch_assoc($result);
-    if(mysqli_num_rows($result) > 0){
-        if($password == $row["password"]){
-            $_SESSION['email'] = $row["email"];
-            $_SESSION['id'] = $row["id"];
-            $id= $row["id"];
+    $nome = $_POST["nome"];
+            $_SESSION["nome"] = $nome;
             header("Location: inbox.php");
-        }
-        else{
-            echo "<script> alert('password errata') </script>";
-        }
-    }
-    else{
-        echo "<script> alert('Username non esistente!') </script>";
-    }
 }
 ?>
 
@@ -160,32 +145,20 @@ if(isset($_POST["submit"])){
   <title>Home</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
-  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 <div class="container">
   <div class="center">
     <h1>Login</h1>
     <form action="" method="POST">
-        <!--<div class="txt_field">
+        <div class="txt_field">
             <input type="text" name="nome" required>
             <span></span>
             <label>Nome</label>
-        </div>-->
-      <div class="txt_field">
-              <input type="email" name="email" required>
-        <span></span>
-        <label>Email</label>
-      </div>
-      <div class="txt_field">
-        <input type="password" name="password" required>
-        <span></span>
-        <label>Password</label>
-      </div>
-      <div class="pass">Forgot Password?</div>
+        </div>
       <input name="submit" type="Submit" value="Login">
       <div class="signup_link">
-        Not a Member ? <a href="signup.php">Signup</a>
+          ?
       </div>
     </form>
   </div>

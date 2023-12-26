@@ -1,16 +1,15 @@
 <?php
-//require "config.php";
+require "config.php";
+include "authsession.php";
 // Sample email data for demonstration
 $emails = [
-    ['id'=> 'distante', 'sender' => 'Domeico Distante', 'subject' => 'Aggiornamento Suite Adobe', 'timestamp' => '23m ago'],
+    ['id'=> 'distante', 'sender' => 'Domenico Distante', 'subject' => 'Aggiornamento Suite Adobe', 'timestamp' => '23m ago'],
     ['id'=> 'google','sender' => 'Google', 'subject' => 'Aggiornamento Suite Adobe', 'timestamp' => '23m ago'],
-    // Add more email data as needed
     ['id'=> 'posteit','sender' => 'poste italiane', 'subject' => 'Mannaggia quel porco di dioo', 'timestamp' => '1h ago'],
+    ['id'=> 'amazon','sender' => 'Amazon', 'subject' => 'Paccoooo', 'timestamp' => '1h ago'],
+    ['id'=> 'didi2','sender' => 'poste italiane', 'subject' => 'Another Subject', 'timestamp' => '1h ago'],
     ['id'=> 'didi','sender' => 'poste italiane', 'subject' => 'Another Subject', 'timestamp' => '1h ago'],
     ['id'=> 'didi','sender' => 'poste italiane', 'subject' => 'Another Subject', 'timestamp' => '1h ago'],
-    ['id'=> 'didi','sender' => 'poste italiane', 'subject' => 'Another Subject', 'timestamp' => '1h ago'],
-    ['id'=> 'didi','sender' => 'poste italiane', 'subject' => 'Another Subject', 'timestamp' => '1h ago'],
-    ['id'=> 'didi','sender' => 'poste italiane', 'subject' => 'Another Subject', 'timestamp' => '2h ago'],
 ];
 ?>
 
@@ -47,9 +46,10 @@ $emails = [
     </style>
 
     <script type="text/javascript">
+
         var previousId = 'none';
 
-        function toggle_visibility(sectionId, emailId, emailIndex) {
+        function toggle_visibility(sectionId) {
             var e = document.getElementById(sectionId);
 
             if (e.style.display == 'block') {
@@ -107,6 +107,7 @@ $emails = [
                           d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
                 </svg>
             </a>
+
             <a href="#" class="w-16 p-4 border text-gray-700 rounded-2xl mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
@@ -125,10 +126,10 @@ $emails = [
                           d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                 </svg>
             </a>
-            <a href="#" class="w-16 p-4 border text-gray-700 rounded-2xl">
+            <!-- bottone impostazioni -->
+            <a href="#" class="w-16 p-4 border text-gray-700 rounded-2xl" onclick="toggle_visibility('settings');" >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                          d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
                           d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
@@ -137,7 +138,7 @@ $emails = [
     </section>
 
 
-    <section id="email-section" class="flex flex-col pt-3 w-4/12 bg-gray-50 h-full overflow-y-scroll">
+    <section id="email-section" class="flex flex-col pt-3 w-4/12 bg-gray-50 h-full">
         <!-- INIZIO CASELLE EMAIL -->
         <!--<label class="px-3 ">
             <input class="rounded-lg p-4 bg-gray-100 transition duration-200 focus:outline-none focus:ring-2 w-full"
@@ -146,7 +147,7 @@ $emails = [
         <ul class="mt-1">
             <?php foreach ($emails as $index => $email): ?>
                 <li id="<?php echo strtolower($email['id']); ?>-list-item" class="py-5 border-b px-3 transition hover:bg-indigo-100">
-                    <a href="#" onclick="toggle_visibility('<?php echo strtolower($email['id']); ?>','email_<?php echo $index; ?>', <?php echo $index; ?>);" class="flex justify-between items-center">
+                    <a href="#" onclick="toggle_visibility('<?php echo strtolower($email['id']); ?>');" class="flex justify-between items-center">
                         <h3 class="text-lg font-semibold"><?php echo $email['sender']; ?></h3>
                         <p class="text-md text-gray-400"><?php echo $email['timestamp']; ?></p>
                     </a>
@@ -161,7 +162,7 @@ $emails = [
         <?php require_once('distante.html'); ?>
     </section>
     <section class="hidden" id="google" style="width:6000px;">
-        <?php require_once('google.php'); ?>
+        <?php require_once('google.html'); ?>
     </section>
     <section class="hidden" id="amazon" style="width:6000px;">
         <?php require_once('amazon.html'); ?>
@@ -175,18 +176,10 @@ $emails = [
     <section class="hidden" id="didi" class="hidden" style="width:6000px;">
         <?php require_once('didi.html'); ?>
     </section>
-    <section class="hidden" id="didi2" class="hidden" style="width:6000px;">
-        <?php require_once(''); ?>
+    <section class="hidden" id="settings" class="hidden" style="width: 6000px;">
+        <?php require_once('settings.html'); ?>
     </section>
-    <section class="hidden" id="didi3" class="hidden" style="width:6000px;">
-        <?php require_once(''); ?>
-    </section>
-    <section class="hidden" id="didi4" class="hidden" style="width:6000px;">
-        <?php require_once(''); ?>
-    </section>
-    <section class="hidden" id="didi5" class="hidden" style="width:6000px;">
-        <?php require_once(''); ?>
-    </section>
+
 </div>
 </body>
 </html>
