@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -10,11 +11,11 @@
         <div class="flex justify-between items-center h-48 border-b-2 mb-8">
             <div class="flex space-x-2 items-center">
                 <div class="h-12 w-12 rounded-full overflow-hidden">
-                    <img src="img/th-2599963090.png" loading="lazy" class="h-full w-full object-cover" />
+                    <img src="https://clipart-library.com/images_k/facebook-logo-with-transparent-background/facebook-logo-with-transparent-background-2.jpg" loading="lazy" class="h-full w-full object-cover" />
                 </div>
                 <div class="flex flex-col">
-                    <h3 class="font-semibold text-lg">Google</h3>
-                    <p class="text-light text-gray-400">no-reply@accounts.google.com</p>
+                    <h3 class="font-semibold text-lg">Facebook</h3>
+                    <p class="text-light text-gray-400">no-reply@accounts.facebook.com</p>
                 </div>
             </div>
             <div>
@@ -57,13 +58,35 @@
             <h1 class="font-bold text-2xl">Avviso di sicurezza</h1>
             <article class="mt-1 text-gray-500 leading-7 tracking-wider">
                 <p>Ciao Uccio</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
+                <?php
+
+                function genera_testo_email()
+                {
+                // Incorpora il testo dinamico generato dalla funzione PHP
+                 $saluti = ["Gentile Utente,", "Ciao,", "Salve,", "Caro Cliente,"];
+                 $corpo_testuale = [
+                "Siamo lieti di informarti che il tuo account è stato aggiornato con successo.",
+                "Il tuo ordine è in fase di elaborazione e sarà spedito presto.",
+                "Abbiamo riscontrato un'attività sospetta sul tuo account. Per favore, verifica le tue informazioni.",
+                "Grazie per la tua recente transazione. Per ulteriori dettagli, consulta la tua cronologia degli acquisti.",
+                "La tua sicurezza è la nostra priorità. Ti consigliamo di modificare la tua password regolarmente."
+                ];
+                $chiusure = ["Grazie per la tua attenzione.", "Cordiali saluti.", "Restiamo a tua disposizione.", "Per qualsiasi domanda, contattaci."];
+
+                $testo_email = $saluti[array_rand($saluti)] . "\n\n" .
+                $corpo_testuale[array_rand($corpo_testuale)] . "\n\n" .
+                $chiusure[array_rand($chiusure)];
+
+                 return $testo_email;
+                }
+
+                // Esempio di utilizzo
+                $email_generata = genera_testo_email();
+                echo nl2br($email_generata); // La funzione nl2br serve per mantenere la formattazione a capo nella visualizzazione HTML
+                //echo nl2br(genera_testo_email());
+                ?>
                 <footer class="mt-1">
-                    <p>Grazie, Cordiali Saluti</p>
-                    <p>Il team di Google</p>
+                    <p>Il team di Facebook</p>
                 </footer>
             </article>
             <ul class="flex space-x-4 mt-12">

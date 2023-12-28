@@ -3,13 +3,13 @@ require "config.php";
 include "authsession.php";
 // Sample email data for demonstration
 $emails = [
-    ['id'=> 'distante', 'sender' => 'Domenico Distante', 'subject' => 'Aggiornamento Suite Adobe', 'timestamp' => '23m ago'],
+    ['id'=> 'distante', 'sender' => 'Domenico Distante', 'subject' => 'Avviso ', 'timestamp' => '23m ago'],
     ['id'=> 'google','sender' => 'Google', 'subject' => 'Aggiornamento Suite Adobe', 'timestamp' => '23m ago'],
     ['id'=> 'posteit','sender' => 'poste italiane', 'subject' => 'Mannaggia quel porco di dioo', 'timestamp' => '1h ago'],
-    ['id'=> 'amazon','sender' => 'Amazon', 'subject' => 'Paccoooo', 'timestamp' => '1h ago'],
-    ['id'=> 'didi2','sender' => 'poste italiane', 'subject' => 'Another Subject', 'timestamp' => '1h ago'],
-    ['id'=> 'didi','sender' => 'poste italiane', 'subject' => 'Another Subject', 'timestamp' => '1h ago'],
-    ['id'=> 'didi','sender' => 'poste italiane', 'subject' => 'Another Subject', 'timestamp' => '1h ago'],
+    ['id'=> 'amazon','sender' => 'Amazon', 'subject' => 'Attenzione: la tua autorizzazione di pagamento è stata sospesa', 'timestamp' => '1h ago'],
+    ['id'=> 'paypal','sender' => 'PayPal', 'subject' => 'Verifica dell\'Account Paypal', 'timestamp' => '5h ago'],
+    ['id'=> 'facebook','sender' => 'facebook', 'subject' => 'Another Subject', 'timestamp' => '1h ago'],
+    ['id'=> 'esse3','sender' => 'Segreteria Studenti OnLine', 'subject' => 'Cambio Password', 'timestamp' => '15 nov 2023'],
 ];
 ?>
 
@@ -44,7 +44,22 @@ $emails = [
         /* ... */
 
     </style>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function confermaLinkMalevolo() {
+            Swal.fire({
+                title: 'Attenzione!',
+                text: 'Questo link è malevolo',
+                icon: 'warning',
+                confirmButtonColor: '#e53e3e',
+                confirmButtonText: 'OK',
+                showCancelButton: false,
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                allowEnterKey: false
+            });
+        }
+    </script>
     <script type="text/javascript">
 
         var previousId = 'none';
@@ -168,18 +183,20 @@ $emails = [
         <?php require_once('amazon.html'); ?>
     </section>
     <section class="hidden" id="facebook" style="width:6000px;">
-        <?php require_once('facebook.html'); ?>
+        <?php require_once('facebook.php'); ?>
     </section>
     <section class="hidden" id="posteit" style="width:6000px;">
         <?php require_once('posteitaliane.html'); ?>
     </section>
-    <section class="hidden" id="didi" class="hidden" style="width:6000px;">
-        <?php require_once('didi.html'); ?>
+    <section class="hidden" id="paypal" class="hidden" style="width:6000px;">
+        <?php require_once('paypal.html'); ?>
     </section>
     <section class="hidden" id="settings" class="hidden" style="width: 6000px;">
         <?php require_once('settings.html'); ?>
     </section>
-
+    <section class="hidden" id="esse3" style="width: 6000px;">
+        <?php require_once('esse3.html'); ?>
+    </section>
 </div>
 </body>
 </html>
