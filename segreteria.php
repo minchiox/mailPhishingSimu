@@ -3,18 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Aggiungi stile personalizzato per l'avviso di conferma */
+        .conferma-avviso {
+            border: 2px solid #e53e3e; /* Colore del bordo rosso */
+            background-color: #fed7d7; /* Colore di sfondo rosso chiaro */
+            color: #e53e3e; /* Colore del testo rosso */
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
 </head>
 
+<script>window.onload = function() {window.frameElement.height = document.body.scrollHeight + 'px'};document.onload = function() {window.frameElement.height = document.body.scrollHeight + 'px'};</script>
 <body><main class="flex h-full shadow-lg rounded-3xl">
     <section class="w-full px-4 flex flex-col bg-white rounded-r-3xl">
         <div class="flex justify-between items-center h-48 border-b-2 mb-8">
             <div class="flex space-x-2 items-center">
                 <div class="h-12 w-12 rounded-full overflow-hidden">
-                    <img src="img/th-2599963090.png" loading="lazy" class="h-full w-full object-cover" />
+                    <img src="img/cropped-LOGO_DISTANTE_SRL_2020_NEW_-13.01.2020-1.png" loading="lazy" class="h-full w-full object-cover" />
                 </div>
                 <div class="flex flex-col">
-                    <h3 class="font-semibold text-lg">Google</h3>
-                    <p class="text-light text-gray-400">no-reply@accounts.google.com</p>
+                    <h3 class="font-semibold text-lg">Segreteria Online</h3>
+                    <p class="text-light text-gray-400">segreteria@distante.it</p>
                 </div>
             </div>
             <div>
@@ -54,13 +67,13 @@
             </div>
         </div>
         <section>
-            <h1 class="font-bold text-2xl">Il tuo Account Google è stato recuperato correttamente</h1>
-            <article class="mt-1 text-gray-500 leading-7 tracking-wider">
-                <p><strong>Ti diamo il bentornato nel tuo account</strong><br>Se temi di non aver potuto accedere al tuo account a causa di modifiche apportate da un'altra persona, <a href="#" class=" underline text-indigo-700">dovresti controllare e proteggere il tuo account.<a>
+            <h1 class="font-bold text-2xl">Cambio Password</h1>
+            <article class="mt-8 text-gray-500 leading-7 tracking-wider">
+                <p>Gentile <?php echo $nome?></p>
+                <p>il reset della password è avvenuto con successo, per accedere al sistema esegua di nuovo il login. NON RISPONDA A QUESTA MAIL: Messaggio prodotto automaticamente dalla segreteria online Distante SURL. Se desidera segnalare delle problematiche, contatti l'URP (<a class="text-center underline text-indigo-700">http://www.distante.it/segreteria/urp</a>), che avrà cura di indicarle la struttura competente alla quale rivolgersi. Grazie <br><br>
                 </p>
-                <footer class="mt-1">
-                    <p>Grazie, Cordiali Saluti</p>
-                    <p>Il team di Google</p>
+                <footer class="mt-12">
+
                 </footer>
             </article>
             <div class="flex justify-center pt-8"><button class=" bg-purple-600 text-white px-6 py-2 rounded-xl hover:bg-purple-900" id="zero" onclick="gestisciClic()">Segnala come mail di phishing</button></div>
@@ -81,3 +94,4 @@
 </main>
 </body>
 </html>
+

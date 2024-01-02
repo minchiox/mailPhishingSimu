@@ -9,11 +9,11 @@
         <div class="flex justify-between items-center h-48 border-b-2 mb-8">
             <div class="flex space-x-2 items-center">
                 <div class="h-12 w-12 rounded-full overflow-hidden">
-                    <img src="img/th-2599963090.png" loading="lazy" class="h-full w-full object-cover" />
+                    <img src="img/pt.png" loading="lazy" class="h-full w-full object-cover" />
                 </div>
                 <div class="flex flex-col">
-                    <h3 class="font-semibold text-lg">Google</h3>
-                    <p class="text-light text-gray-400">no-reply@accounts.google.com</p>
+                    <h3 class="font-semibold text-lg">Poste Italiane</h3>
+                    <p class="text-light text-gray-400">no-reply@accounts.poste.it</p>
                 </div>
             </div>
             <div>
@@ -65,8 +65,8 @@
                     ?>
                 </p>
                 <footer class="mt-1">
-                    <p>Grazie, Cordiali Saluti</p>
-                    <p>Il team di Google</p>
+                    <p>Cordiali Saluti</p>
+                    <p>Il team di Poste Italiane</p>
                 </footer>
             </article>
             <div class="flex justify-center pt-8"><button class=" bg-purple-600 text-white px-6 py-2 rounded-xl hover:bg-purple-900" id="zero" onclick="gestisciClic()">Segnala come mail di phishing</button></div>

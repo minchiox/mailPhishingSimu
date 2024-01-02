@@ -12,7 +12,7 @@ $emails = [
     ['id'=> 'amazon','sender' => 'Amazon', 'subject' => 'Attenzione: la tua autorizzazione di pagamento è stata sospesa', 'timestamp' => '1h ago','letta' => false],
     ['id'=> 'paypal','sender' => 'PayPal', 'subject' => 'Verifica dell\'Account Paypal', 'timestamp' => '5h ago','letta' => false],
     ['id'=> 'facebook','sender' => 'facebook', 'subject' => 'Avviso di sicurezza', 'timestamp' => '1h ago','letta' => false],
-    ['id'=> 'esse3','sender' => 'Segreteria OnLine', 'subject' => 'Cambio Password', 'timestamp' => '15 nov 2023','letta' => false],
+    ['id'=> 'esse3','sender' => 'Segreteria Online', 'subject' => 'Cambio Password', 'timestamp' => '15 nov 2023','letta' => false],
     ['id'=> 'spam','sender' => 'Formulários Google ', 'subject' => 'Secure Your Bitcoin Balance: Limited Time Left', 'timestamp' => '20 dic 2023','letta' => false],
 ];
 
@@ -365,7 +365,7 @@ function genera_testo_email()
         <?php require_once('settings.html'); ?>
     </section>
     <section class="hidden" id="esse3" style="width: 6000px;">
-        <?php require_once('esse3.html'); ?>
+        <?php require_once('segreteria.php'); ?>
     </section>
     <section class="hidden" id="spam" style="width: 6000px;">
         <?php require_once('spam.php'); ?>
