@@ -57,28 +57,8 @@
         <section>
             <h1 class="font-bold text-2xl">Avviso di sicurezza</h1>
             <article class="mt-1 text-gray-500 leading-7 tracking-wider">
-                <p>Ciao Uccio</p>
+                <p>Gentile <?php echo $nome?></p>
                 <?php
-
-                function genera_testo_email()
-                {
-                // Incorpora il testo dinamico generato dalla funzione PHP
-                 $saluti = ["Gentile Utente,", "Ciao,", "Salve,", "Caro Cliente,"];
-                 $corpo_testuale = [
-                "Siamo lieti di informarti che il tuo account è stato aggiornato con successo.",
-                "Il tuo ordine è in fase di elaborazione e sarà spedito presto.",
-                "Abbiamo riscontrato un'attività sospetta sul tuo account. Per favore, verifica le tue informazioni.",
-                "Grazie per la tua recente transazione. Per ulteriori dettagli, consulta la tua cronologia degli acquisti.",
-                "La tua sicurezza è la nostra priorità. Ti consigliamo di modificare la tua password regolarmente."
-                ];
-                $chiusure = ["Grazie per la tua attenzione.", "Cordiali saluti.", "Restiamo a tua disposizione.", "Per qualsiasi domanda, contattaci."];
-
-                $testo_email = $saluti[array_rand($saluti)] . "\n\n" .
-                $corpo_testuale[array_rand($corpo_testuale)] . "\n\n" .
-                $chiusure[array_rand($chiusure)];
-
-                 return $testo_email;
-                }
 
                 // Esempio di utilizzo
                 $email_generata = genera_testo_email();
@@ -89,16 +69,7 @@
                     <p>Il team di Facebook</p>
                 </footer>
             </article>
-            <ul class="flex space-x-4 mt-12">
-                <!-- segnala come spam, dovrebbe dare tipo un contentino all'utente che capisce se la mail è spam e la segnala -->
-                <li
-                        class="w-10 h-10 border rounded-lg p-1 cursor-pointer transition duration-200 text-indigo-600 hover:bg-blue-100">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                              d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
-                    </svg>
-                </li>
-            </ul>
+            <div class="flex justify-center pt-8"><button class=" bg-purple-600 text-white px-6 py-2 rounded-xl hover:bg-purple-900" id="zero" onclick="gestisciClic()">Segnala come mail di phishing</button></div>
         </section>
         <section class="mt-6 border rounded-xl bg-gray-50 mb-3">
             <textarea class="w-full bg-gray-50 p-2 rounded-xl" placeholder="Type your reply here..." rows="3"></textarea>

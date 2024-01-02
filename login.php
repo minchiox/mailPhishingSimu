@@ -5,7 +5,7 @@ include 'checkconn.php';
 if(isset($_POST["submit"])){
     $nome = $_POST["nome"];
             $_SESSION["nome"] = $nome;
-            header("Location: inbox.php");
+            header("Location: intro.php");
 }
 ?>
 
